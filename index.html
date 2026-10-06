@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alex Cortina -- Game modder and builder pursuing QA</title>
+<meta name="description" content="Alex Cortina, game modder and builder in Vancouver, BC, pursuing game QA roles. Mods on Nexus Mods and Steam Workshop, plus a full-stack web and iOS app." />
+<meta name="color-scheme" content="dark" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Alex Cortina -- Game modder and builder pursuing QA" />
+<meta property="og:description" content="Mods with 4,500+ and 3,800+ downloads, plus a full-stack web and iOS app with real users. Vancouver, BC." />
+
+<style>
+  /* One file, no external requests: no web fonts, no frameworks, no
+     JavaScript. Single round trip, paints instantly, cannot break. */
+
+  :root {
+    --bg:     #0a0a0a;
+    --ink:    #f2f2f0;
+    --ink-2:  #9a9a96;
+    --ink-3:  #6a6a66;
+    --rule:   #1e1e1c;
+    --measure: 34rem;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  a:focus-visible { outline: 1px solid var(--ink-2); outline-offset: 4px; }
+
+  .page {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: clamp(4rem, 12vw, 8rem) 1.5rem clamp(4rem, 10vw, 7rem);
+  }
+
+  /* ---- masthead ---- */
+
+  h1 {
+    font-size: clamp(2.6rem, 8vw, 4.2rem);
+    font-weight: 700;
+    letter-spacing: -0.045em;
+    line-height: 1;
+    margin: 0 0 0.9rem;
+  }
+
+  .role {
+    font-size: clamp(1.05rem, 2.6vw, 1.2rem);
+    color: var(--ink-2);
+    margin: 0 0 2.4rem;
+    letter-spacing: -0.005em;
+  }
+
+  .intro {
+    max-width: var(--measure);
+    color: var(--ink-2);
+    margin: 0 0 2.4rem;
+  }
+  .intro b { color: var(--ink); font-weight: 600; }
+
+  .where {
+    font-size: 0.95rem;
+    color: var(--ink-3);
+    margin: 0;
+  }
+  .where a { color: var(--ink-2); border-bottom: 1px solid var(--rule); padding-bottom: 1px; }
+  .where a:hover { color: var(--ink); border-color: var(--ink-3); }
+  .sep { padding: 0 0.55rem; color: var(--rule); }
+
+  /* ---- work ---- */
+
+  .work { margin-top: clamp(4rem, 11vw, 7rem); }
+
+  .project {
+    border-top: 1px solid var(--rule);
+    padding-top: clamp(2.5rem, 7vw, 4rem);
+    margin-top: clamp(2.5rem, 7vw, 4rem);
+  }
+  .project:first-child { margin-top: 0; }
+
+  .kicker {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--ink-3);
+    margin: 0 0 0.75rem;
+  }
+
+  h2 {
+    font-size: clamp(1.6rem, 4vw, 2.1rem);
+    font-weight: 650;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin: 0 0 1rem;
+  }
+
+  .project p {
+    max-width: var(--measure);
+    color: var(--ink-2);
+    margin: 0 0 1.6rem;
+  }
+
+  /* Numbers as typography, not widgets: no boxes, no borders. */
+  .figures {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 2.75rem;
+    padding: 0;
+    margin: 0 0 1.75rem;
+  }
+  .figures li { font-size: 0.95rem; color: var(--ink-3); }
+  .figures b {
+    display: block;
+    font-size: 1.35rem;
+    font-weight: 650;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .aside {
+    max-width: var(--measure);
+    font-size: 0.95rem;
+    color: var(--ink-3);
+    margin: 0 0 1.75rem;
+  }
+
+  .go {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.75rem;
+    font-size: 0.95rem;
+    margin: 0 0 2.25rem;
+  }
+  .go a {
+    color: var(--ink);
+    border-bottom: 1px solid var(--ink-3);
+    padding-bottom: 2px;
+  }
+  .go a:hover { border-color: var(--ink); }
+  .go a span { color: var(--ink-3); }
+
+  /* ---- 16:9 screenshot ---- */
+
+  .shot { margin: 0; }
+  .shot img {
+    display: block;
+    width: 100%;
+    /* height:auto is load-bearing. The img's height="900" attribute is a CSS
+       presentational hint, so without this it wins over aspect-ratio and the
+       picture renders 900px tall. */
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 3px;
+  }
+  /* The Workshop preview is square, and a 16:9 crop would cut off either the
+     relic at the top or the shield bar at the bottom. So it sits whole and
+     centred, and the page's own background fills the sides. No baked-in
+     padding: letting --bg show through means it matches exactly, forever. */
+  .shot img.fit { object-fit: contain; }
+
+  /* The Crammed shot is the whole hero, which is taller than wide. Give this
+     one image its natural ratio instead of 16:9 so the logo and buttons both
+     fit with no side gaps and nothing clipped. The two mod shots stay 16:9. */
+  .shot img.hero { aspect-ratio: 1080 / 865; }
+
+  .shot-empty {
+    aspect-ratio: 16 / 9;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    display: grid;
+    place-items: center;
+    color: #3a3a37;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ---- contact ---- */
+
+  .contact {
+    border-top: 1px solid var(--rule);
+    margin-top: clamp(3.5rem, 9vw, 6rem);
+    padding-top: clamp(2.5rem, 7vw, 4rem);
+  }
+  .contact h2 { margin-bottom: 1.2rem; }
+  .contact p { max-width: var(--measure); color: var(--ink-2); margin: 0 0 1.75rem; }
+
+  .lines { font-size: 0.98rem; color: var(--ink-2); }
+  .lines div { margin-bottom: 0.4rem; }
+  .lines span { color: var(--ink-3); display: inline-block; min-width: 6.5rem; }
+  .lines a { color: var(--ink); border-bottom: 1px solid var(--ink-3); padding-bottom: 2px; }
+  .lines a:hover { border-color: var(--ink); }
+</style>
+</head>
+
+<body>
+<div class="page">
+
+  <header>
+    <h1>Alex Cortina</h1>
+    <p class="role">Game modder and builder pursuing QA</p>
+
+    <p class="intro">
+      I build game mods and full-stack apps, and ship them to people who actually use them.
+    </p>
+
+    <p class="where">
+      Vancouver, BC<span class="sep">/</span><a href="mailto:alex.cortina4@gmail.com">alex.cortina4@gmail.com</a>
+    </p>
+  </header>
+
+  <main class="work">
+
+    <!-- ============ Clean HUD ============ -->
+    <article class="project">
+      <p class="kicker">Halo: Campaign Evolved &middot; Nexus Mods</p>
+      <h2>Clean HUD</h2>
+
+      <p>
+        Redesigned the HUD to remove visual noise. Configurable keybinds, per-element toggles,
+        scaling, and repositioning.
+      </p>
+
+      <ul class="figures">
+        <li><b>4,500+</b>downloads</li>
+        <li><b>74</b>endorsements</li>
+        <li><b>4</b>releases in three weeks</li>
+      </ul>
+
+      <p class="aside">
+        Shipped four releases in three weeks, smoke-testing each one. Featured by YouTuber
+        HiddenXperia (632K subscribers) in a 101K-view video.
+      </p>
+
+      <p class="go">
+        <a href="https://nexusmods.com/halocampaignevolved/mods/100" target="_blank" rel="noopener">Nexus Mods <span>&#8599;</span></a>
+        <a href="https://youtu.be/xS0ux0h4Vzg?t=832" target="_blank" rel="noopener">HiddenXperia feature <span>&#8599;</span></a>
+      </p>
+
+      <figure class="shot">
+        <img src="alex-cleanhud.jpg?v=2" alt="Clean HUD running in Halo: Campaign Evolved, showing a minimal shield bar, ammo counter, and motion tracker." loading="lazy" width="1600" height="900" />
+      </figure>
+    </article>
+
+    <!-- ============ Orichalcum Indicator ============ -->
+    <article class="project">
+      <p class="kicker">Slay the Spire 2 &middot; Steam Workshop</p>
+      <h2>Orichalcum Indicator</h2>
+
+      <p>
+        A shield indicator that shows when the Orichalcum relic grants free block.
+      </p>
+
+      <ul class="figures">
+        <li><b>3,800+</b>downloads</li>
+        <li><b>3.3K</b>upvotes on r/slaythespire</li>
+        <li><b>315K</b>views on the launch post</li>
+      </ul>
+
+      <p class="go">
+        <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3793325679" target="_blank" rel="noopener">Steam Workshop <span>&#8599;</span></a>
+      </p>
+
+      <figure class="shot">
+        <img class="fit" src="alex-orichalcum.jpg?v=2" alt="Orichalcum Indicator in Slay the Spire 2: a green shield badge showing 6 free block beside the health bar." loading="lazy" width="510" height="510" />
+      </figure>
+    </article>
+
+    <!-- ============ Crammed ============ -->
+    <article class="project">
+      <p class="kicker">Web and iOS</p>
+      <h2>Crammed</h2>
+
+      <p>
+        A full-stack Quizlet alternative I designed and built, with all implementation done by
+        ClaudeCode under my direction. Postgres, OAuth login, hosted on Railway. Includes a 3D
+        Gravity game mode rebuilt from a Discord user request.
+      </p>
+
+      <ul class="figures">
+        <li><b data-live-users>28</b>users</li>
+        <li><b>20 hrs</b>logged by the most engaged user</li>
+      </ul>
+
+      <p class="go">
+        <a href="https://crammed.study/" target="_blank" rel="noopener">crammed.study <span>&#8599;</span></a>
+        <a href="https://apps.apple.com/us/app/crammed/id6802477685" target="_blank" rel="noopener">App Store <span>&#8599;</span></a>
+      </p>
+
+      <figure class="shot">
+        <img class="hero" src="alex-crammed.jpg?v=4" alt="The Crammed landing page, showing a Learn round with a definition and four answer choices." loading="lazy" width="1080" height="865" />
+      </figure>
+    </article>
+
+    <!-- ============ Chimera ============ -->
+    <article class="project">
+      <p class="kicker">Windows &middot; Mod launcher</p>
+      <h2>Chimera</h2>
+
+      <p>
+        A one-click launcher for game crossover mods. It finds your Steam games, downloads the
+        mod from its creator, sets it up, and starts the game. When you close the game, your
+        game folders go back to how they were, and your saves are backed up first.
+      </p>
+
+      <ul class="figures">
+        <li><b>5</b>crossovers</li>
+        <li><b>1</b>click to play</li>
+        <li><b>Beta 0.9</b>free for Windows</li>
+      </ul>
+
+      <p class="go">
+        <a href="https://alex-cortina.github.io/chimera/" target="_blank" rel="noopener">Website <span>&#8599;</span></a>
+        <a href="https://github.com/alex-cortina/chimera" target="_blank" rel="noopener">GitHub <span>&#8599;</span></a>
+      </p>
+
+      <figure class="shot">
+        <img src="alex-chimera.jpg?v=1" alt="The Chimera website: a red text-art chimera above the Chimera title and a Download button." loading="lazy" width="1600" height="900" />
+      </figure>
+    </article>
+
+  </main>
+
+  <footer class="contact">
+    <h2>Contact</h2>
+    <p>I'm pursuing game QA roles and I'm happy to walk through any of the work above.</p>
+
+    <div class="lines">
+      <div><span>Email</span><a href="mailto:alex.cortina4@gmail.com">alex.cortina4@gmail.com</a></div>
+      <div><span>Based in</span>Vancouver, BC</div>
+      <div><span>Availability</span>Available on-site</div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
